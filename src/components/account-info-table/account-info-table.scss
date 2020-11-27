@@ -1,0 +1,166 @@
+.information_table {
+  display: flex;
+  .profile_picture {
+    width: 12.5rem;
+    height: 12.5rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid white;
+  }
+  .information_table_rows {
+    margin: 0 1rem;
+    margin-right: 0;
+    width: calc(100% - 10rem);
+    height: 12.5rem;
+    color: white;
+    .information_row {
+      height: calc(10rem / 4.15);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1rem;
+      padding: 0 1.25rem;
+      margin: 0;
+      text-align: left;
+      border-bottom: 1px solid #1ED760;
+      &:nth-child(even) {
+        background-color: #2D2D2D;
+      }
+      h4 {
+        width: 15rem;
+        margin: 0;
+        font-weight: 600;
+      }
+      h6 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+.recently-played {
+  color: white;
+  text-align: left;
+  margin-top: 1rem;
+  h4 {
+    color: #1ED760;
+  }
+  .recently-played-songs {
+    width: 50vw;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: .5rem;
+    margin: .5rem 0;
+    .recently-played-song {
+      white-space: nowrap;
+      width: max-content;
+      max-width: calc(50vw / 5);
+      margin: 0 .5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: .3s;
+      &:nth-child(1), &:nth-child(6) {
+        margin-left: 0;
+      }
+      &:nth-child(5), &:nth-child(10) {
+        margin-right: 0;
+      }
+      &:hover {
+        cursor: pointer;
+        color: #1ED760;
+      }
+    }
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Extra large devices (large desktops, up to 1200px)
+@media (max-width: 1200px) { }
+
+// Large devices (desktops, up to 992px)
+@media (max-width: 992px) { }
+
+// Medium devices (tablets, up to 768px)
+@media (max-width: 768px) {
+  .information_table {
+    flex-direction: column;
+
+    .profile_picture {
+      width: 6rem;
+      height: 6rem;
+      margin: .5rem auto;
+    }
+
+    .information_table_rows {
+      width: 100%;
+      margin: 0;
+      .information_row {
+        padding: 0 .5rem;
+        justify-content: space-between;
+        font-size: .75rem;
+        h4 {
+          min-width: max-content;
+          margin-right: 1rem;
+          width: unset;
+        }
+        h6 {
+          font-size: .75rem;
+          text-overflow: ellipsis;
+          word-wrap: none;
+        }
+      }
+    }
+  }
+  
+  .recently-played {
+    display: none;
+  }
+}
+
+// Small devices (landscape phones, up to 576px)
+@media (max-width: 576px) {
+  .information_table {
+    flex-direction: column;
+
+    .profile_picture {
+      width: 6rem;
+      height: 6rem;
+      margin: .5rem auto;
+    }
+
+    .information_table_rows {
+      width: 100%;
+      margin: 0;
+      .information_row {
+        padding: 0 .5rem;
+        justify-content: space-between;
+        font-size: .75rem;
+        h4 {
+          min-width: max-content;
+          margin-right: 1rem;
+          width: unset;
+        }
+        h6 {
+          font-size: .75rem;
+          text-overflow: ellipsis;
+          word-wrap: none;
+        }
+      }
+    }
+  }
+  
+  .recently-played {
+    display: none;
+  }
+}
+
+
+
+
+

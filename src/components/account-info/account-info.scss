@@ -1,0 +1,80 @@
+.account_information {
+  width: 50vw;
+  margin: 0 auto;
+  .closed-heading {
+    border-bottom: 1px solid #1ED760;
+  }
+  .account-info-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s;
+    margin: .5rem 0;
+    h1 {
+      color: white;
+      font-weight: 300;
+      font-size: 1.5rem;
+      text-align: left;
+      margin: 1rem 0;
+    }
+    i {
+      color: white;
+      vertical-align: middle;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: #2D2D2D;
+      padding: 0 1rem;
+    }
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Extra large devices (large desktops, up to 1200px)
+@media (max-width: 1200px) { }
+
+// Large devices (desktops, up to 992px)
+@media (max-width: 992px) {
+  .account_information {
+    width: 70vw;
+
+    .account-info-heading {
+      h1 {
+        font-size: 1.25rem;
+      }
+    }
+
+  }
+}
+
+// Medium devices (tablets, up to 768px)
+@media (max-width: 768px) {
+  .account_information {
+    width: 70vw;
+
+    .account-info-heading {
+      h1 {
+        font-size: .75rem;
+      }
+    }
+
+  }
+}
+
+// Small devices (landscape phones, up to 576px)
+@media (max-width: 576px) {
+  .account_information {
+    width: 80vw;
+
+    .account-info-heading {
+      h1 {
+        font-size: .75rem;
+      }
+    }
+
+  }
+}
+
+

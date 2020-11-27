@@ -1,0 +1,339 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #212121;
+  .information-header {
+    width: 50vw;
+    margin: 2rem auto;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    .btns-container {
+      border-bottom: 1px solid #1ED760;
+      button {
+        margin: 1rem auto;
+        font-weight: 600;
+        color: white;
+        padding: .5rem 2rem;
+        background-color: #2d2d2d;
+        border: none;
+        outline: none;
+        transition: .3s;
+        &:hover {
+          cursor: pointer;
+          background-color: #1ED760;
+        }
+      }
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    
+  }
+
+  .artist-information {
+    width: 50vw;
+    margin: 0 auto;
+    color: white;
+    font-size: .75rem;
+
+    .artist-heading {
+      text-align: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .artist-picture {
+        width: 8rem;
+        height: 8rem;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: 1px solid white;
+      }
+      .artist-heading-text {
+        margin: 0 1rem;
+        h4 {
+          font-weight: 300;
+        }
+        h1 {
+          margin: .25rem 0;
+        }
+        button {
+          padding: .75rem 2rem;
+          background-color: #2d2d2d;
+          color: white;
+          transition: .3s;
+          outline: none;
+          border: none;
+          &:hover {
+            cursor: pointer;
+            background-color: #1ED760;
+          }
+        }
+      }
+    }
+
+    .artist-labels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: left;
+      margin: 3rem 0;
+      grid-gap: 1rem;
+      color: white;
+      .artist-label {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        h4 {
+          font-size: 1rem;
+          color: #1ED760;
+        }
+        h6 {
+          display: flex;
+          align-items: flex-start;
+          font-size: 1rem;
+          font-weight: 300;
+          margin: .25rem 0;
+          background-color: #2d2d2d;
+          padding: 0.5rem 1rem;
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    .dropdown-information {
+      width: 50vw;
+      margin: 5rem auto;
+      .closed-heading {
+        border-bottom: 1px solid #1ED760;
+      }
+      .dropdown-information-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: .3s;
+        margin: .5rem 0;
+        h1 {
+          color: white;
+          font-weight: 300;
+          font-size: 1.5rem;
+          text-align: left;
+          margin: 1rem 0;
+        }
+        i {
+          color: white;
+          vertical-align: middle;
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: #2D2D2D;
+          padding: 0 1rem;
+        }
+      }
+
+      .info-table {
+        .info-rows {
+          display: grid;
+          grid-auto-flow: column;
+          .info-row {
+            margin: .5rem;
+            width: 100%;
+            height: 6rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            transition: .3s;
+            position: relative;
+            
+            &:hover {
+              cursor: pointer;
+              border-right: 10px solid white;
+              background-color: #2D2D2D;
+            }
+            .info-picture {
+              height: 6rem;
+              width: 6rem;
+              background-position: center;
+              background-size: cover;
+              background-repeat: no-repeat;
+              margin: 0 1rem;
+              margin-left: 0;
+              pointer-events: none;
+            }
+            .info-row-text {
+              text-align: left;
+              margin: 0 1rem;
+              width: calc(100% / 4 - 4rem);
+              pointer-events: none;
+              &:nth-child(2) {
+                width: 25%;
+              }
+              h2 {
+                font-size: 1.25rem;
+                width: auto;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                pointer-events: none;
+                span {
+                  font-weight: 300;
+                  pointer-events: none;
+                }
+              }
+              h4 {
+                font-size: 1rem;
+                font-weight: 300;
+                pointer-events: none;
+              }
+              .public-text {
+                color: #1ED760;
+              }
+              .private-text {
+                color: #d72a1e;
+              }
+            }
+
+            .queuePopup {
+              position: absolute;
+              top: 0;
+              right: 0;
+              transform: translate(-50%, -50%);
+              width: auto;
+              color: white;
+              display: flex;
+              opacity: 0;
+              justify-content: center;
+              align-items: center;
+              background-color: #212121;
+              padding: .5rem 1rem;
+              border: 1px solid #1ED760;
+              border-radius: .25rem;
+              transition: .3s;
+              pointer-events: all;
+              &:hover {
+                background-color: #2d2d2d;
+              }
+              h1 {
+                font-size: 1rem;
+                font-weight: 300;
+                pointer-events: none;
+                margin: 0 .5rem;
+              }
+              i {
+                font-size: 1rem;
+                pointer-events: none;
+              }
+            }
+          }
+          .track-row-queue {
+            pointer-events: none;
+            background-color: #212121;
+            &:hover {
+              background-color: #212121;
+              border-right: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Extra large devices (large desktops, up to 1200px)
+@media (max-width: 1200px) { }
+
+// Large devices (desktops, up to 992px)
+@media (max-width: 992px) {
+  .container {
+    .information-header {
+      width: 70vw;
+      margin: 5rem auto 2rem auto;
+    }
+
+    .artist-information {
+      width: 80vw;
+      .artist-labels {
+        grid-template-columns: repeat(2, 1fr);
+        .artist-label {
+          &:nth-child(2) {
+            grid-row: 2 / span 3;
+            grid-column: 1 / span 3;
+          }
+          h6 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
+      .dropdown-information {
+        width: 70vw;
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, up to 768px)
+@media (max-width: 768px) {
+  .container {
+    .information-header {
+      width: 80vw;
+      margin: 5rem auto 2rem auto;
+    }
+
+    .artist-information {
+      width: 80vw;
+      .artist-labels {
+        .artist-label {
+          h6 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
+      .dropdown-information {
+        width: 80vw;
+        .info-table {
+          .info-rows {
+            .info-row {
+              height: 4rem;
+              .info-picture {
+                height: 4rem;
+                width: 4rem;
+              }
+              .info-row-text {
+                display: none;
+                &:nth-child(1), &:nth-child(2) {
+                  width: 50%;
+                  display: block;
+                }
+                h2 {
+                  font-size: 1rem;
+                }
+                h4 {
+                  font-size: .75rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, up to 576px)
+@media (max-width: 576px) {
+  
+}

@@ -1,0 +1,23 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  img {
+    width: 4rem;
+    margin: 0 1rem;
+  }
+}
+
+h1 {
+  span {
+    color: #42b983;
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+}

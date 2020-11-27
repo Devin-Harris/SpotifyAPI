@@ -1,0 +1,32 @@
+.shows_container {
+  color: white;
+  text-align: left;
+  .total {
+    color: #1ED760;
+  }
+  .show {
+    margin: .5rem 0;
+    font-size: 1rem;
+    transition: .3s;
+    padding: .5rem 0;
+    h4 {
+      font-weight: 300;  
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: #2D2D2D;
+      padding: .5rem 1rem;
+      border-right: 5px solid white;
+    }
+    .show_date {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: #1ED760;
+      margin: .5rem 0;
+      h4 {
+        margin: 0 .5rem;
+      }
+    }
+  }
+}
