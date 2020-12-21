@@ -71,6 +71,9 @@ export default {
       })
       return track_artists
     },
+    openPlaylistSplitter() {
+      this.$router.push('playlist-splitter')
+    },
     createPlaylist(tracks) {
       this.$store.state.createPlaylistTracks = JSON.parse(JSON.stringify(tracks))
       this.$router.push('/create-playlist')

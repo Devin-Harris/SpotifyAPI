@@ -67,7 +67,7 @@
     }
   }
 
-  .make-playlist-btn {
+  .make-playlist-btn, .playlist-splitter-button {
     display: flex;
     align-items: center;
     padding: .5rem 1rem;
@@ -81,6 +81,7 @@
     transition: .3s;
     i {
       margin-left: 1rem;
+      line-height: 120%;
     }
     &:hover {
       background-color: transparent;

@@ -34,6 +34,7 @@
           </div>
         </div>
 
+        <button class="playlist-splitter-button" @click="openPlaylistSplitter()" v-if="type === 'playlists'">Open Playlist Splitter <i class="fas fa-sitemap"></i></button>
         <div class="playlist-rows" v-if="type === 'playlists'" :style="{'gridTemplateRows': 'repeat(' + top_info.items.length + ', 1fr)'}">
           <div class="playlist-row" v-for="(playlist, index) in top_info.items" :key="index" @click="openSpotifyPlaylist(playlist)">
             <div class="playlist-picture" :style="playlist.images.length > 0 ? {backgroundImage: 'url(' + playlist.images[0].url + ')'} : {backgroundColor: '#2D2D2D'}"></div>

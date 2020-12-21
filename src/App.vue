@@ -8,7 +8,7 @@
       <i class="fas fa-step-forward" @click="nextSong"></i>
     </div>
   </div>
-  <router-view :key="$route.fullPath" />
+  <router-view />
 </template>
 
 <script>
@@ -150,6 +150,10 @@ export default {
 
 button {
   font-weight: 600;
+}
+
+i {
+  line-height: 1.1 !important;
 }
 
 #app {

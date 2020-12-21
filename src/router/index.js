@@ -6,6 +6,7 @@ import SpotifyApi from '../views/Spotify-api'
 import TrackInfo from '../views/track-info'
 import ArtistInfo from '../views/artist-info'
 import CreatePlaylist from '../views/create-playlist'
+import PlaylistSplitter from '../views/playlist-splitter'
 
 const routes = [
   {
@@ -27,6 +28,11 @@ const routes = [
     path: '/spotify-api',
     name: 'Spotify-api',
     component: SpotifyApi
+  },
+  {
+    path: '/playlist-splitter',
+    name: 'playlist-splitter',
+    component: PlaylistSplitter
   },
   {
     path: '/track/:trackId?',
