@@ -123,7 +123,6 @@ export default {
       }
 
       playlist_info.tracks.items = items
-      console.log(items)
       return playlist_info
     },
     async getGenres(artists) {
@@ -197,7 +196,6 @@ export default {
       this.checkboxChanged(toggle)
     },
     checkboxChanged(toggle) {
-      console.log(toggle)
       switch (toggle) {
         case 'Genres':
           this.genreToggle = !this.genreToggle
@@ -240,7 +238,6 @@ export default {
       return arr
     },
     getPopularityTracks() {
-      console.log(this.minPop, this.maxPop)
       const arr = this.selectedPlaylist.tracks.items.filter((({ track }) => {
         return (track.popularity >= this.minPop && track.popularity <= this.maxPop)
       })).map(i => i.track)
@@ -250,10 +247,12 @@ export default {
       let genreTracks = this.getGenreTracks()
       let artistTracks = this.getArtistTracks()
       let albumTracks = this.getAlbumTracks()
-      let popularityTracks = this.getPopularityTracks()
 
-      let tracks = [...genreTracks, ...artistTracks, ...albumTracks, ...popularityTracks]
+      let tracks = []
+      tracks = [...genreTracks, ...artistTracks, ...albumTracks]
+      if (tracks.length === 0) tracks = this.selectedPlaylist.tracks.items.map(t => t.track)
 
+      console.log(tracks)
       // Remove Duplicates
       let storeTracks = []
       tracks.forEach(track => {
@@ -261,7 +260,7 @@ export default {
         else storeTracks.push(track)
       })
 
-      this.$store.state.createPlaylistTracks = storeTracks
+      this.$store.state.createPlaylistTracks = storeTracks.filter(t => (t.popularity >= this.minPop && t.popularity <= this.maxPop))
       this.$router.push('/create-playlist')
     }
   }
