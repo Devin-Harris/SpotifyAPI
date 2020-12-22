@@ -103,9 +103,23 @@ export default {
       const { id } = post_information
 
       // Add items to playlist
-      const uris = {
+      let uris = {
         uris: this.tracks.filter(track => track.isSelected).map(track => track.uri)
       }
+
+      while (uris.uris.length > 100) {
+        const newUris = uris.uris.slice(0, 100)
+        await fetch(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${this.$store.state.token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newUris)
+        })
+        uris.uris.splice(0, 100)
+      }
+
       await fetch(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
         method: 'POST',
         headers: {

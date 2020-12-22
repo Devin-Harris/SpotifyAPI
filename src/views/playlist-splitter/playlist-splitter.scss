@@ -41,8 +41,11 @@
 
   .playlist-split-toggles {
     width: 25%;
-    margin: 1rem auto;
+    margin: 3rem auto;
     color: white;
+    p {
+      margin: .25rem 0;
+    }
     h2 {
 
     }
@@ -58,27 +61,61 @@
         }
       }
     }
-    .fa-sitemap {
-      margin: 1rem auto;
-      font-weight: 600;
-      color: white;
-      background-color: #2d2d2d;
-      border: none;
-      outline: none;
-      transition: .3s;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 6vmin;
-      width: 6vmin;
-      color: #212121;
+  }
 
-      &:hover {
+  .available-inputs {
+    width: 25%;
+    margin: 0 auto;
+    color: white;
+    .dropdown-container {
+      height: 100%;
+      display: grid;
+      text-align: left;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: .25rem;
+      
+      .input-section {
+        padding: .5rem .75rem;
+        height: 100%;
+        width: 100%;
+        background-color: #2d2d2d;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
         cursor: pointer;
-        color: white;
-        background-color: #1ED760;
+        
+        input {
+          margin-right: 1rem;
+          cursor: pointer;
+        }
+        label {
+          cursor: pointer;
+        }
       }
+    }
+  }
+  
+  .fa-sitemap {
+    margin: 1rem auto;
+    font-weight: 600;
+    color: white;
+    background-color: #2d2d2d;
+    border: none;
+    outline: none;
+    transition: .3s;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6vmin;
+    width: 6vmin;
+    color: #212121;
+    font-size: 1.25rem;
+
+    &:hover {
+      cursor: pointer;
+      color: white;
+      background-color: #1ED760;
     }
   }
 
