@@ -1,0 +1,51 @@
+.action-label-container {
+
+  .label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    margin: .5rem 0;
+    border-bottom: 1px solid #1ED760;
+    transition: .3s;
+    
+    &.hasDropdown {
+      cursor: pointer;
+      &.open, &:hover {
+        background-color: #2D2D2D;
+        border-bottom: 1px solid transparent;
+      }
+    }
+
+
+    .evaluation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      &:hover {
+        background-color: unset;
+      }
+
+      input {
+        outline: none;
+        border: none;
+        width: 2rem;
+        margin: 0 .5rem;
+        background-color: unset;
+        color: white;
+        text-align: center;
+        display: block;
+        font-size: 100%;
+      }
+      i {
+        font-size: .75rem;
+        margin: 0 .5rem;
+      }
+    }
+  }
+
+  .dropdown-container {
+
+  }
+}
