@@ -26,7 +26,6 @@ export default {
   },
   async created() {
     this.token = localStorage.getItem('token')
-    console.log(this.token)
     await this.setDisplayName()
   },
   methods: {

@@ -11,8 +11,8 @@
       <template #default>
         <div @click="addToQueue" class="tables">
           <button class="queue-btn">Add to queue</button>
-          <track-table :token="$store.state.token" :trackId="$route.params.trackId"/>        
-          <album-table :token="$store.state.token" :albumId="albumId" v-if="albumId"/>
+          <track-table :token="token" :trackId="$route.params.trackId"/>        
+          <album-table :token="token" :albumId="albumId" v-if="albumId"/>
         </div>
       </template>
       <template #fallback>

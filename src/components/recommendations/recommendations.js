@@ -6,6 +6,8 @@ async function getRecommendationsInfo(token, seed, genre = null) {
   if (seed === 'artists' || seed === 'tracks')
     top_info = await getTopInfo(token, seed)
 
+  console.log(top_info)
+
   let url = 'https://api.spotify.com/v1/recommendations?'
   if (seed === 'artists')
     url += `seed_artists=${top_info.items.map(item => item.id).join(',')}`

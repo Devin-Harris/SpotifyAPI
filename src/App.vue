@@ -111,9 +111,12 @@ export default {
   async created() {
     const client_id = 'fd49c6c7cae74d5b8a5188d599b7aa16'
 
-    if (window.location.hash) {
+    const hasHash = Boolean(window.location.hash.split('#/')[1] && window.location.hash.split('#/')[1] !== '')
+
+    if (hasHash) {
       const hashs = window.location.hash.substring(1).split('&')
       hashs.forEach(hash => {
+        if (hash === '#/') return
         const hash_values = hash.split('=')
         if (hash_values[0] === '/access_token') this.token = hash_values[1]
       })
