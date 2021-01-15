@@ -7,6 +7,7 @@ import TrackInfo from '../views/track-info'
 import ArtistInfo from '../views/artist-info'
 import CreatePlaylist from '../views/create-playlist'
 import PlaylistSplitter from '../views/playlist-splitter'
+import PlaylistCombiner from '../views/playlist-combiner'
 
 const routes = [
   {
@@ -33,6 +34,11 @@ const routes = [
     path: '/playlist-splitter',
     name: 'playlist-splitter',
     component: PlaylistSplitter
+  },
+  {
+    path: '/playlist-combiner',
+    name: 'playlist-combiner',
+    component: PlaylistCombiner
   },
   {
     path: '/track/:trackId?',

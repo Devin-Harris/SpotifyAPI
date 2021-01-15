@@ -67,7 +67,7 @@
     }
   }
 
-  .make-playlist-btn, .playlist-splitter-button {
+  .make-playlist-btn, .playlist-splitter-button, .playlist-combine-button {
     display: flex;
     align-items: center;
     padding: .5rem 1rem;
@@ -90,6 +90,10 @@
     &:focus {
       outline: none;
     }
+  }
+
+  .playlist-buttons {
+    display: flex;
   }
 
   .track-rows {

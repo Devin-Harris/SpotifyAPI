@@ -74,6 +74,9 @@ export default {
     openPlaylistSplitter() {
       this.$router.push('playlist-splitter')
     },
+    openCombinePlaylists() {
+      this.$router.push('playlist-combiner')
+    },
     createPlaylist(tracks) {
       this.$store.state.createPlaylistTracks = JSON.parse(JSON.stringify(tracks))
       this.$router.push('/create-playlist')
