@@ -20,8 +20,12 @@ export default {
   },
   data() {
     return {
-      track_information: {}
+      track_information: {},
+      token: null
     }
+  },
+  created() {
+    this.token = localStorage.getItem('token')
   },
   computed: {
     async albumId() {
@@ -37,7 +41,7 @@ export default {
       this.$router.push('/')
     },
     async getAlbumId(trackId) {
-      this.track_information = await getTrackInfo(this.$store.state.token, trackId)
+      this.track_information = await getTrackInfo(this.token, trackId)
       return this.track_information.album.id
     },
     async addToQueue() {
@@ -45,7 +49,7 @@ export default {
       await fetch(`https://api.spotify.com/v1/me/player/queue?uri=${uri}`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${this.$store.state.token}`
+          Authorization: `Bearer ${this.token}`
         }
       })
     }

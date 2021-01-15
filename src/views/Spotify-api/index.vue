@@ -21,7 +21,7 @@
       </Suspense>
     </div>
 
-    <account-info :token="$store.state.token" />
+    <account-info :token="token" />
 
     <div class="top_buttons">
       <button :class="{'active': topInfoType === 'artists'}" class="artists_button" @click="toggleTop('artists')">View Top Artists</button>
@@ -32,7 +32,7 @@
     <div class="top_info_container" v-if="isTopLoaded">
       <Suspense>
         <template #default>
-          <user-top-info :type="topInfoType" :token="$store.state.token" :key="topInfoType" />
+          <user-top-info :type="topInfoType" :token="token" :key="topInfoType" />
         </template>
         <template #fallback>
           <div class="loading">
@@ -44,13 +44,13 @@
     </div>
 
     <div class="library_info_container">
-      <library-info v-for="(library, index) in libraries" :token="$store.state.token" :type="library" :key="index" />
+      <library-info v-for="(library, index) in libraries" :token="token" :type="library" :key="index" />
     </div>
 
     <div class="recommendations_container">
       <Suspense>
         <template #default>
-            <recommendations :token="$store.state.token" />
+            <recommendations :token="token" />
         </template>
         <template #fallback>
           <div class="loading">
@@ -64,7 +64,7 @@
     <div class="releases_container">
       <Suspense>
         <template #default>
-            <new-releases :token="$store.state.token" />
+            <new-releases :token="token" />
         </template>
         <template #fallback>
           <div class="loading">
@@ -78,7 +78,7 @@
     <div class="featured_container">
       <Suspense>
         <template #default>
-            <featured-playlists :token="$store.state.token" />
+            <featured-playlists :token="token" />
         </template>
         <template #fallback>
           <div class="loading">

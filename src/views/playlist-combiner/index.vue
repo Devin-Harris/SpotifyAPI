@@ -11,19 +11,33 @@
       <template #default>
         <div class="combine-playlist-container" v-if="!combined">
 
-          <div class="playlist-add-information-container">
+          <div class="playlist-combine-information-container">
             <h1>Combine playlists</h1>
+
+            <div class="how-it-works">
+
+              <div class="how-it-works__label" @click="toggleHowItWorks">
+                <p>How the <span>Combiner</span> works</p>
+                <i class="fas" :class="howItWorksOpen ? 'fa-times' : 'fa-info-circle'"></i>
+              </div>
+
+              <ol class="how-it-works__info" v-if="howItWorksOpen">
+                <li>The combiner works by adding songs from 1 playlist into another</li>
+                <li>You cannot select the same playlist in the To and From dropdowns</li>
+                <li>All songs already in the from playlist will not be added to avoid duplications</li>
+                <li>You can also only add songs to playlists you own</li>
+              </ol>
+
+            </div>
           </div>
           
           <div class="playlist-selectors">
             <div class="selector">
-              <h4>Playlist to add tracks to:</h4>
-              <select-list v-if="selectedToPlaylist" class="select-playlist" @selected-item="selectPlaylist($event, 'to')" :items="playlistToNames" :selectedItem="selectedToPlaylist.name" />
+              <select-list v-if="selectedToPlaylist" :label="'Playlist to add tracks to:'" class="select-playlist" @selected-item="selectPlaylist($event, 'to')" :items="playlistToNames" :selectedItem="selectedToPlaylist.name" />
             </div>
 
             <div class="selector">
-              <h4>Playlist to add tracks from:</h4>
-              <select-list v-if="selectedFromPlaylist" class="select-playlist" @selected-item="selectPlaylist($event, 'from')" :items="playlistNames.filter(name => name !== selectedToPlaylist.name)" :selectedItem="selectedFromPlaylist.name" />
+              <select-list v-if="selectedFromPlaylist" :label="'Playlist to add tracks from:'" class="select-playlist" @selected-item="selectPlaylist($event, 'from')" :items="playlistNames.filter(name => name !== selectedToPlaylist.name)" :selectedItem="selectedFromPlaylist.name" />
             </div>
           </div>
 

@@ -38,7 +38,8 @@ export default {
       albumToggle: false,
       popularityToggle: false,
       minPop: 0,
-      maxPop: 100
+      maxPop: 100,
+      howItWorksOpen: false
     }
   },
   async mounted() {
@@ -216,7 +217,7 @@ export default {
     setMinNum(e) {
       this.minPop = e
     },
-    setMaxNum() {
+    setMaxNum(e) {
       this.maxPop = e
     },
     getGenreTracks() {
@@ -252,7 +253,6 @@ export default {
       tracks = [...genreTracks, ...artistTracks, ...albumTracks]
       if (tracks.length === 0) tracks = this.selectedPlaylist.tracks.items.map(t => t.track)
 
-      console.log(tracks)
       // Remove Duplicates
       let storeTracks = []
       tracks.forEach(track => {
@@ -262,6 +262,9 @@ export default {
 
       this.$store.state.createPlaylistTracks = storeTracks.filter(t => (t.popularity >= this.minPop && t.popularity <= this.maxPop))
       this.$router.push('/create-playlist')
+    },
+    toggleHowItWorks() {
+      this.howItWorksOpen = !this.howItWorksOpen
     }
   }
 }

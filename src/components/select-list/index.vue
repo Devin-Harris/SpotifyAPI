@@ -1,7 +1,7 @@
 <template>
   <div class="select-list-container">
     <div class="selected-item">
-      <p class="selected-item-label">Select a Playlist</p>
+      <p class="selected-item-label">{{label}}</p>
       <div class="selected-item-text" @click.stop="toggleDropdown">
         <h2>{{selectedItem}}</h2>
         <i class="fas fa-chevron-down"></i>

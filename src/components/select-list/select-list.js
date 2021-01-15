@@ -1,6 +1,6 @@
 export default {
   name: 'select-list',
-  props: ['items', 'selectedItem'],
+  props: ['items', 'selectedItem', 'label'],
   data() {
     return {
       isDropdownOpen: false

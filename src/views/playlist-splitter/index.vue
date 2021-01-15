@@ -11,7 +11,28 @@
       <template #default>
         <div class="user-playlist-information">
 
-          <select-list class="select-playlist" @selected-item="selectPlaylist" :items="playlistNames" :selectedItem="selectedPlaylist.name" />
+          <div class="playlist-combine-information-container">
+            <h1>Split playlists</h1>
+
+            <div class="how-it-works">
+
+              <div class="how-it-works__label" @click="toggleHowItWorks">
+                <p>How the <span>Splitter</span> works</p>
+                <i class="fas" :class="howItWorksOpen ? 'fa-times' : 'fa-info-circle'"></i>
+              </div>
+
+              <ol class="how-it-works__info" v-if="howItWorksOpen">
+                <li>The splitter works by taking all the songs from 1 playlist and creating a new playlist from them</li>
+                <li>Splitting on Genres will take all songs within the selected playlist that have the a genre that matches a selected genre</li>
+                <li>Splitting on Artists will take all songs within the selected playlist that have an artist that matches a selected artist</li>
+                <li>Splitting on Albums will take all songs within the selected playlist that are in a album that matches a selected album</li>
+                <li>Splitting on Popularity will take all songs selected from other constraints and filter out all songs not within set popularity range</li>
+              </ol>
+
+            </div>
+          </div>
+
+          <select-list class="select-playlist" :label="'Select a Playlist'" @selected-item="selectPlaylist" :items="playlistNames" :selectedItem="selectedPlaylist.name" />
 
           <div class="playlist-split-toggles">
             <p v-if="selectedPlaylist && selectedPlaylist.tracks && selectedPlaylist.tracks.items">Total tracks: {{selectedPlaylist.tracks.items.length}}</p>

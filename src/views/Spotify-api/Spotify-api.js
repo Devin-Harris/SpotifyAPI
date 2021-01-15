@@ -25,7 +25,8 @@ export default {
     }
   },
   async created() {
-    this.token = this.$store.state.token
+    this.token = localStorage.getItem('token')
+    console.log(this.token)
     await this.setDisplayName()
   },
   methods: {
@@ -42,7 +43,7 @@ export default {
       const response = await fetch('https://api.spotify.com/v1/me', {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${this.$store.state.token}`
+          Authorization: `Bearer ${this.token}`
         }
       })
       const { display_name } = await response.json()

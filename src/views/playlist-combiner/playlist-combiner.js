@@ -29,7 +29,8 @@ export default {
       playlistIds: [],
       playlists: [],
       deleteFromPlaylist: false,
-      userId: null
+      userId: null,
+      howItWorksOpen: false
     }
   },
   computed: {
@@ -196,5 +197,8 @@ export default {
         this.tracksToAdd = this.tracksToAdd.filter(track => !selectedToTrackIds.includes(track.track.id))
       }
     },
+    toggleHowItWorks() {
+      this.howItWorksOpen = !this.howItWorksOpen
+    }
   }
 }

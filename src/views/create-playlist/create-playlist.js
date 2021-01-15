@@ -12,7 +12,8 @@ export default {
         collaborative: false,
         description: ''
       },
-      created: false
+      created: false,
+      token: null
     }
   },
   computed: {
@@ -28,12 +29,16 @@ export default {
     }
   },
   created() {
+    this.token = localStorage.getItem('token')
     this.tracks = this.$store.state.createPlaylistTracks
     this.tracks.map(track => track.isSelected = true)
   },
   methods: {
     goBack() {
       this.$router.back()
+    },
+    goHome() {
+      this.$router.push('/')
     },
     getArtists(track) {
       let track_artists = ''
@@ -71,7 +76,7 @@ export default {
       const response = await fetch(`https://api.spotify.com/v1/me`, {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${this.$store.state.token}`
+          Authorization: `Bearer ${this.token}`
         }
       })
       const { id } = await response.json()
@@ -94,7 +99,7 @@ export default {
       const response = await fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${this.$store.state.token}`,
+          Authorization: `Bearer ${this.token}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(createBody)
@@ -112,7 +117,7 @@ export default {
         await fetch(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
           method: 'POST',
           headers: {
-            Authorization: `Bearer ${this.$store.state.token}`,
+            Authorization: `Bearer ${this.token}`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(newUris)
@@ -123,7 +128,7 @@ export default {
       await fetch(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${this.$store.state.token}`,
+          Authorization: `Bearer ${this.token}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(uris)

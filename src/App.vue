@@ -78,6 +78,7 @@ export default {
     },
     redirect(client_id) {
       let redirect_uri = window.location.origin
+
       let scopes =
         [
           'user-top-read',
@@ -100,7 +101,7 @@ export default {
       const response = await fetch('https://api.spotify.com/v1/me', {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${this.$store.state.token}`
+          Authorization: `Bearer ${this.token}`
         }
       })
       const user_information = await response.json()
@@ -114,7 +115,7 @@ export default {
       const hashs = window.location.hash.substring(1).split('&')
       hashs.forEach(hash => {
         const hash_values = hash.split('=')
-        if (hash_values[0] === 'access_token') this.token = hash_values[1]
+        if (hash_values[0] === '/access_token') this.token = hash_values[1]
       })
       if (this.token) {
         this.$store.state.token = this.token

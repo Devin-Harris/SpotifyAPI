@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home'
 import Fragments from '../views/Fragments'
 import SuspenseInfo from '../views/Suspense-info'
@@ -63,7 +63,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
   scrollBehavior() {
     document.getElementById('app').scrollIntoView()
